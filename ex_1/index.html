@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <title>Mitt abstrakte bilde</title>
+    <!--imports jQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="abstract_script.js"></script>
+    <link rel="stylesheet" href="abstract.css" />
+  </head>
+  <body onload="drawAbstract()">
+    <h1>Mitt abstrakte bilde</h1>
+
+    <div id="intro">
+      Kunstneren studerer data i femteklasse. Han hadde webtek i fjor, men har
+      ikke praktisert håndverket siden, og er derfor flaut rusten på området.
+      Han gleder seg til å lære mye nytt som gjør webutvikling mer effektivt.
+      Prøv å trykke på bildene, så vil du aldri se på kunst på samme måte igjen.
+    </div>
+    <p id="quote">
+      <em>“Life is to live it, not to let it live you.” – Pitbull</em>
+    </p>
+
+    <div class="gridcontainer">
+      <figure>
+        <canvas
+          id="abstract_canvas"
+          width="200"
+          height="200"
+          style="border: 2px solid black; background-color: white"
+        ></canvas>
+        <figcaption>Tegnet vha. Canvas</figcaption>
+      </figure>
+
+      <figure>
+        <svg
+          id="abstract_svg"
+          width="200"
+          height="200"
+          style="border: 2px solid black"
+        >
+          <!--Background-->
+          <rect
+            class="svg_element"
+            id="svg_background"
+            x="0"
+            y="0"
+            width="200"
+            height="200"
+            style="fill: white"
+          />
+          <!--Purple square-->
+          <rect
+            class="svg_element"
+            x="20"
+            y="40"
+            width="60"
+            height="60"
+            style="fill: #de473a"
+          />
+          <!--Red square-->
+          <rect
+            class="svg_element"
+            x="60"
+            y="5"
+            width="60"
+            height="60"
+            style="fill: aqua"
+          />
+          <!--Yellow triangle-->
+          <polygon
+            class="svg_element"
+            points="45,130 140,100 40,180"
+            style="fill: navy"
+          />
+          <!--Blue triangle-->
+          <polygon
+            class="svg_element"
+            points="100,90 150,40 160,100"
+            style="fill: fuchsia"
+          />
+          <!--Green circle-->
+          <circle class="svg_element" cx="160" cy="160" r="30" fill="#91ab20" />
+        </svg>
+        <figcaption>Tegnet vha. SVG</figcaption>
+      </figure>
+    </div>
+    <button type="button" id="hideviewbutton">Skjul / Vis dokumentasjon</button>
+    <div id="textbox">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vel
+      tincidunt nunc, vel tincidunt massa. Ut tincidunt ullamcorper congue.
+      Aenean maximus condimentum pulvinar. Quisque vehicula dui quis dignissim
+      imperdiet. Vivamus eget vestibulum ligula. Mauris malesuada risus ipsum,
+      vitae mollis tellus blandit sit amet. Nulla facilisis a lectus at euismod.
+      Nullam ut velit augue. Donec dapibus nisl cursus est ultricies semper.
+      Suspendisse euismod nulla lacus, sit amet ornare orci ultricies ac.
+      Curabitur suscipit orci id velit egestas tristique. Ut id molestie felis.
+      Etiam ac viverra erat, iaculis rutrum erat. Donec fermentum feugiat elit,
+      at euismod massa interdum sit amet. Aliquam pellentesque eleifend
+      tincidunt. Fusce lobortis ante nibh, a sagittis nisl auctor non.
+      Suspendisse non convallis eros. Quisque semper luctus massa ut lobortis.
+      Proin bibendum imperdiet erat, dignissim rutrum ante fermentum nec. Mauris
+      laoreet orci erat, auctor dictum ex congue at. Etiam mauris felis,
+      elementum venenatis dolor vel, porta pulvinar massa. Praesent varius, orci
+      non ornare condimentum, erat orci commodo lacus, id ultricies ipsum nulla
+      non sapien. Donec lacinia fringilla nibh vel placerat. Sed efficitur eros
+      sit amet tellus tempus, nec iaculis ipsum euismod. Quisque et turpis enim.
+      Vestibulum pharetra laoreet lectus sed varius. Donec justo sem, convallis
+      eget leo id, euismod fringilla enim. Nam imperdiet ullamcorper libero in
+      finibus. Nulla ac molestie libero.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+body {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('louvre.jpg'); /* Darken background for greater readability */
+  color: white;
+  text-shadow: 0 1px 0 black; /*Gives greater readability*/
+}
+h1 {
+  color: blue;
+  text-align: center;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+#intro {
+  font-size: x-large;
+}
+.gridcontainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+}
+figcaption {
+  font-size: large;
+}
+#hideviewbutton {
+  /*Button design borrowed from w3schools.com*/
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
