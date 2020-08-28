@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="no">
   <head>
-    <title>Mitt abstrakte bilde</title>
+    <title>Mitt Abstrakte Bilde</title>
+    <link rel="icon" type="image/png" href="favicon-16x16.png" />
     <!--imports jQuery-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="abstract_script.js"></script>
     <link rel="stylesheet" href="abstract.css" />
   </head>
   <body onload="drawAbstract()">
-    <h1>Mitt abstrakte bilde</h1>
+    <h1>Mitt Abstrakte Bilde</h1>
 
     <div id="intro">
       Kunstneren studerer data i femteklasse. Han hadde webtek i fjor, men har
@@ -17,7 +18,15 @@
       Prøv å trykke på bildene, så vil du aldri se på kunst på samme måte igjen.
     </div>
     <p id="quote">
-      <em>“Life is to live it, not to let it live you.” – Pitbull</em>
+      <em
+        >“Life is to live it, not to let it live you.” –
+        <a
+          href="https://www.facebook.com/pitbull/photos/life-is-to-live-it-not-to-let-it-live-you/10152305127077401/"
+          class="lenker"
+          target="_blank"
+          >Pitbull</a
+        >></em
+      >
     </p>
 
     <div class="gridcontainer">
@@ -84,29 +93,89 @@
         <figcaption>Tegnet vha. SVG</figcaption>
       </figure>
     </div>
-    <button type="button" id="hideviewbutton">Skjul / Vis dokumentasjon</button>
+    <button type="button" id="hideviewbutton">Vis / Skjul dokumentasjon</button>
     <div id="textbox">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vel
-      tincidunt nunc, vel tincidunt massa. Ut tincidunt ullamcorper congue.
-      Aenean maximus condimentum pulvinar. Quisque vehicula dui quis dignissim
-      imperdiet. Vivamus eget vestibulum ligula. Mauris malesuada risus ipsum,
-      vitae mollis tellus blandit sit amet. Nulla facilisis a lectus at euismod.
-      Nullam ut velit augue. Donec dapibus nisl cursus est ultricies semper.
-      Suspendisse euismod nulla lacus, sit amet ornare orci ultricies ac.
-      Curabitur suscipit orci id velit egestas tristique. Ut id molestie felis.
-      Etiam ac viverra erat, iaculis rutrum erat. Donec fermentum feugiat elit,
-      at euismod massa interdum sit amet. Aliquam pellentesque eleifend
-      tincidunt. Fusce lobortis ante nibh, a sagittis nisl auctor non.
-      Suspendisse non convallis eros. Quisque semper luctus massa ut lobortis.
-      Proin bibendum imperdiet erat, dignissim rutrum ante fermentum nec. Mauris
-      laoreet orci erat, auctor dictum ex congue at. Etiam mauris felis,
-      elementum venenatis dolor vel, porta pulvinar massa. Praesent varius, orci
-      non ornare condimentum, erat orci commodo lacus, id ultricies ipsum nulla
-      non sapien. Donec lacinia fringilla nibh vel placerat. Sed efficitur eros
-      sit amet tellus tempus, nec iaculis ipsum euismod. Quisque et turpis enim.
-      Vestibulum pharetra laoreet lectus sed varius. Donec justo sem, convallis
-      eget leo id, euismod fringilla enim. Nam imperdiet ullamcorper libero in
-      finibus. Nulla ac molestie libero.
+      <h3 class="underoverskift">Min bruk av CSS grid og flexbox:</h3>
+      <p class="dokutekst">
+        Jeg har brukt CSS grid for å strukturere de to bildene på siden min.
+        Grid liknet mest på metoder jeg har brukt tidligere, så jeg fant det
+        derfor naturlig å bruke denne layout-metoden fremfor CSS flexbox. Nå i
+        retrospekt ser jeg at det kanskje at flexbox ville vært vel så nyttig å
+        bruke, siden innholdet mitt (de to bildene med figcaption) ligger på én
+        akse (1-d til forskjell fra 2-d som er CSS grid sitt spesialfelt).
+      </p>
+      <h3 class="underoverskift">HTML canvas og SVG</h3>
+      <p class="dokutekst">
+        Da jeg skulle tegne opp motivet for bildene mine, så valgte jeg å legge
+        inn et canvas-element i HTMLen, og deretter fylle denne «rammen» med
+        figurer ved hjelp av en funksjon definert i Javascript-filen. Dette
+        synes jeg gjør HTMLen ryddig, som jeg synes er viktig, både for at jeg
+        skal forstå koden bedre selv, men også når andre skal sette seg inn i
+        koden min. Javascript-funksjonen kalles når siden er lastet inn
+        (onload). Når det gjelder SVGen, så har jeg valgt å bygge opp hele dette
+        bildet vha. HTML. Dette er første gang jeg lager bilder vha. SVG, så jeg
+        valgte den løsningen som var enklest for å få frem det bildet jeg
+        ønsket. Nå er jeg mer øvet på SVG, så neste gang jeg skal bygge i SVG,
+        så kommer jeg nok til å bygge bildet i en Javascript-fil, siden dette er
+        mer ryddig.
+      </p>
+      <h3 class="underoverskift">jQuery:</h3>
+      <p class="dokutekst">
+        Jeg har brukt jQuery til alle selectors, både for Canvas-elementet og
+        SVG-elementet. jQuery gjør at jeg trenger færre kodeord for å selektere
+        elementer (med id eller klassenavn), koden blir derfor ryddigere, og
+        lettere for eksterne programmere å sette seg inn i. jQuery bruker en
+        event listener, så koden er ikke wrappet i en funksjon. For å detektere
+        klikk på canvas-figuren lytter event listeneren etter klikk innenfor
+        rammene til canvas-elementet, derfor trenger den kun se etter klikk fra
+        ett element, elementet med id = "abstract_canvas". For at event
+        listeneren skal detektere klikk innenfor SVG-"rammen" derimot, så må den
+        lytte etter klikk fra hver av elementene i SVG-figuren. Alle elementene
+        er derfor satt til å tilhøre samme klasse - "svg_element", event
+        listeneren aktiveres hvis det blir klikket på et element tilhørende
+        denne klassen. Hvis jeg skulle brukt "vanlig" Javascript, for click
+        detection på SVG-elementet, fremfor jQuery, så måtte jeg hatt en løkke
+        som sjekket hvert av elementene, fordi js-metoden,
+        ".getElementsByClassName" returnerer en collection som må itereres over.
+        I begge tilfeller bruker jeg jQuery-funksjonen ".css(attributt, verdi)"
+        til å manipulere utseende til figurene.
+      </p>
+      <h3 class="underoverskift">Cross-browser testing:</h3>
+      <p class="dokutekst">
+        Nettsiden er testet i Google Chrome og Microsoft Edge, her fant jeg
+        identisk oppførsel. Cross-browser testing er viktig for å sikre at
+        brukerne av nettsiden opplever siden slik den er ment å oppleves. I
+        denne øvingen var det et krav om å teste nettsiden i minst to
+        nettlesere, men det kan også være relevant å teste nettsiden gjennom
+        Smart TV, mobiltelefon, gamle smartelefoner og utstyr med skjermlesere
+        for de med funksjonsnedsettelser. Jeg har også testet om nettsiden er
+        responsiv til størrelsen på view porten. Når jeg gjør vinduet smalere,
+        så legger bilde #2 (SVG-bildet) seg under bilde #1 istedenfor å ligge
+        ved siden av, dette er viktig for å hele tiden kunne se alt innholdet på
+        siden. Et annet godt alternativ til at bilde #2 legger seg nedenfor
+        kunne vært at bildene skalerte (ble mindre/større, men beholdt
+        proposjonene), men at siden utenom det ikke endret utseende.
+      </p>
+      <h3 class="underoverskift">Informasjonskilder</h3>
+      <p class="dokutekst">
+        Den viktigste informasjonskilden jeg har brukt er svar på spørsmål stilt
+        på StackOverflow, jeg har også brukt YouTube for å sette meg inn i CSS
+        Flexbox og grid, siden disse layout-metodene var helt nye for meg. Før
+        denne øvingen hadde jeg aldri jobbet med jQuery, jeg har derfor latt meg
+        inspirere av eksempler på bruk av jQuery fra
+        <a
+          class="lenker"
+          href="https://www.w3schools.com/jquery/"
+          target="_blank"
+          >W3schools</a
+        >. <br />En oppdatering på hvordan skrive media queries fikk jeg fra
+        <a
+          class="lenker"
+          href="https://travishorn.com/responsive-grid-in-2-minutes-with-css-grid-layout-4842a41420fe"
+          target="_blank"
+          >Travishorn.com</a
+        >.
+      </p>
     </div>
   </body>
 </html>

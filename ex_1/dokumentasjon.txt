@@ -1,9 +1,0 @@
-Jeg har brukt jQuery til alle selectors, både for Canvas-elementet og SVG-elementet. jQuery bruker en event listener, så koden er ikke wrappet i en funksjon.
-For å detektere klikk på canvas-figuren lytter event listeneren etter klikk innenfor rammene til canvas-elementet, derfor trenger den kun se etter klikk for id = "abstract_canvas".
-For at event listeneren skal detektere klikk innenfor svg-"rammen", så må den lytte til klikk på hver av elementene i SVG-figuren, alle elementene er derfor att til å tilhøre samme klasse - "svg-element", event listeneren aktiveres hvis det blir blir klikket på et element i denne klassen.
-Hvis jeg skulle brukt "vanlig" Javascript for click detection fremfor jQuery, så måtte jeg hatt en løkke som sjekket hvert av elementene, fordi js-metoden, ".getElementsByClassName" returnerer en liste.
-I begge tilfeller bruker jeg jQuery-funksjonen ".css()" til å manipulere utseende til figurene.
-
-Nettsiden er testet i Google Chrome og Microsoft Edge, her fant jeg lik oppførsel
-
-De viktigste informasjonskildene jeg har brukt er svar på spørsmål stilt på StackOverflow, jeg har også brukt YouTube for å sette meg inn i CSS Flexbox og grid, siden disse layout-metodene var helt nye for meg.
